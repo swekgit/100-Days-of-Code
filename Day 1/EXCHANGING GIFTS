@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void find_youngest_member(int n, int m, std::vector<std::pair<int, int>> &gifts) {
+    // Write your logic here.
+    vector<int> giver(n+1,0);
+    vector<int> taker(n+1,0);
+    
+    for(auto x: gifts){
+        giver[x.first]++;
+        taker[x.second]++;
+    }
+    for(int i = 1; i <= n; i++){
+
+        if(taker[i] == n - 1 && giver[i] == 0){
+            cout << i;
+            return;
+   // return ans;
+        }
+}
+cout<<-1;
+}
+
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    std::vector<std::pair<int, int>> gifts(m);
+    for (int i = 0; i < m; ++i) {
+        std::cin >> gifts[i].first >> gifts[i].second;
+    }
+    find_youngest_member(n, m, gifts);
+    return 0;
+}
+                       
